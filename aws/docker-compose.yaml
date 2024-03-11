@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  phpmyadmin_aws:
+    image: phpmyadmin
+    ports:
+      - 8100:80
+    environment:
+      - PMA_ARBITRARY=1
+
