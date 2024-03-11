@@ -88,6 +88,36 @@ Realizar los ajustes necesarios, como cambiar el nombre de la tabla asociada al 
 
 Completamos las funciones index, create, store, show, edit, update y destroy en el controlador ProfesorController con la lógica correspondiente para manejar las operaciones CRUD.
 
+1-index(): Esta acción muestra un listado paginado de todos los alumnos.
+Utiliza el método paginate(5) para mostrar 5 registros por página.
+También recoge el número de página actual usando Request::get('page') ?? 1, donde ?? 1 establece el valor
+predeterminado a 1 si no se proporciona el número de página. 
+Finalmente, retorna la vista alumnos.listado pasando los alumnos y el número de página.
+
+2-create(): Esta acción muestra el formulario para crear un nuevo alumno.
+Simplemente retorna la vista alumnos.create.
+
+3-store(): Esta acción almacena un nuevo alumno en la base de datos.
+Recibe los datos del alumno a través de la solicitud $request (validados por StoreAlumnoRequest).
+Crea un nuevo objeto Alumno con estos valores, lo guarda en la base de datos y redirige
+a la vista alumnos.listado mostrando un mensaje de confirmación.
+
+4-show(): Esta acción muestra los detalles de un alumno específico.
+Recibe un objeto Alumno como parámetro y lo pasa a la vista alumnos.show.
+
+5-edit(): Esta acción muestra el formulario para editar un alumno existente.
+Recibe un objeto Alumno como parámetro y también recoge el número de página actual.
+Luego, retorna la vista alumnos.editar pasando el alumno y el número de página.
+
+6-update(): Esta acción actualiza un alumno existente en la base de datos.
+Recibe los datos actualizados del alumno a través de la solicitud $request
+(validados por UpdateAlumnoRequest). Actualiza el objeto Alumno con estos valores
+y redirige a la vista alumnos.listado mostrando un mensaje de confirmación.
+
+7-destroy(): Esta acción elimina un alumno de la base de datos.
+Recibe un objeto Alumno como parámetro, lo elimina y redirige
+a la vista alumnos.listado mostrando un mensaje de confirmación.
+
 #### 6-Creación de Vistas:
 Creamos las vistas necesarias dentro de la carpeta resources/views/profesores para mostrar la lista de profesores, el formulario de creación y edición, así como la vista de detalles de un profesor.
 
